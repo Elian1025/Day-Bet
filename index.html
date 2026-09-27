@@ -1,1 +1,50 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#211d1d" />
+		<meta
+			name="description"
+			content="Una sorpresa de cumpleaños preparada con cariño para Betsabé."
+		/>
+		<title>Para Betsabé</title>
+		<link rel="stylesheet" href="./styles.css" />
+		<script src="./main.js" defer></script>
+	</head>
+	<body>
+		<main class="welcome" data-state="ready">
+			<video
+				class="welcome__video"
+				autoplay
+				muted
+				loop
+				playsinline
+				preload="metadata"
+				aria-hidden="true"
+			>
+				<source src="./assets/video/snoopy.mp4" type="video/mp4" />
+			</video>
+			<div class="welcome__veil" aria-hidden="true"></div>
 
+			<section class="welcome__content" aria-labelledby="welcome-title">
+				<p class="welcome__eyebrow">Para Betsabé</p>
+				<h1 id="welcome-title">Hice algo para ti.</h1>
+				<p class="welcome__prompt">¿Me acompañas?</p>
+				<a class="welcome__button" href="#k-dramas" data-next-section="k-dramas">
+					<span>Descubrir mi regalo</span>
+					<svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+						<path d="M5 12h13m-5-5 5 5-5 5" />
+					</svg>
+				</a>
+				<p class="welcome__status" role="status" aria-live="polite" hidden>
+					La siguiente parte llegará pronto.
+				</p>
+			</section>
+
+			<p class="welcome__video-notice" role="status" hidden>
+				Añade el video de Snoopy en <code>assets/video/snoopy.mp4</code>.
+			</p>
+		</main>
+	</body>
+</html>
