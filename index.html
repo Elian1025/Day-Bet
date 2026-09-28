@@ -9,42 +9,138 @@
 			content="Una sorpresa de cumpleaños preparada con cariño para Betsabé."
 		/>
 		<title>Para Betsabé</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="./styles.css" />
+		<script src="./surprise.js" defer></script>
+		<script src="./garden.js" defer></script>
+		<script src="./kdramas.js" defer></script>
 		<script src="./main.js" defer></script>
 	</head>
 	<body>
-		<main class="welcome" data-state="ready">
-			<video
-				class="welcome__video"
-				autoplay
-				muted
-				loop
-				playsinline
-				preload="metadata"
-				aria-hidden="true"
-			>
-				<source src="./assets/video/snoopy.mp4" type="video/mp4" />
-			</video>
-			<div class="welcome__veil" aria-hidden="true"></div>
+		<main class="journey" data-state="welcome">
+			<section class="welcome" aria-labelledby="welcome-title">
+				<div class="welcome__landscape" aria-hidden="true">
+					<img class="welcome__art" src="./assets/images/betsabe-meadow.svg" alt="" fetchpriority="high" />
+					<span class="welcome__sparkle welcome__sparkle--one"></span>
+					<span class="welcome__sparkle welcome__sparkle--two"></span>
+					<span class="welcome__sparkle welcome__sparkle--three"></span>
+					<span class="welcome__sparkle welcome__sparkle--four"></span>
+					<span class="welcome__sparkle welcome__sparkle--five"></span>
+				</div>
+				<div class="welcome__veil" aria-hidden="true"></div>
 
-			<section class="welcome__content" aria-labelledby="welcome-title">
-				<p class="welcome__eyebrow">Para Betsabé</p>
-				<h1 id="welcome-title">Hice algo para ti.</h1>
-				<p class="welcome__prompt">¿Me acompañas?</p>
-				<a class="welcome__button" href="#k-dramas" data-next-section="k-dramas">
-					<span>Descubrir mi regalo</span>
-					<svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
-						<path d="M5 12h13m-5-5 5 5-5 5" />
-					</svg>
-				</a>
-				<p class="welcome__status" role="status" aria-live="polite" hidden>
-					La siguiente parte llegará pronto.
-				</p>
+				<div class="welcome__content">
+					<p class="welcome__eyebrow">Para Betsabé</p>
+					<h1 id="welcome-title">Hice algo para ti.</h1>
+					<p class="welcome__prompt">¿Me acompañas?</p>
+					<a class="welcome__button" href="#k-dramas" data-next-section="k-dramas">
+						<span>Descubrir mi regalo</span>
+						<svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+							<path d="M5 12h13m-5-5 5 5-5 5" />
+						</svg>
+					</a>
+				</div>
+
 			</section>
 
-			<p class="welcome__video-notice" role="status" hidden>
-				Añade el video de Snoopy en <code>assets/video/snoopy.mp4</code>.
-			</p>
+			<div class="tulip-transition" aria-hidden="true" hidden></div>
+			<div class="gerbera-transition" data-gerbera-transition aria-hidden="true" hidden></div>
+			<div class="dahlia-transition" data-dahlia-transition aria-hidden="true" hidden></div>
+
+			<section class="kdramas" id="k-dramas" aria-labelledby="kdramas-title" hidden>
+				<div class="kdramas__shell">
+					<header class="kdramas__intro">
+						<p class="kdramas__eyebrow">Un capítulo para ti</p>
+						<h2 id="kdramas-title">Historias que se parecen a nosotros.</h2>
+						<p class="kdramas__message">Algunos amores encuentran su camino una y otra vez.</p>
+					</header>
+
+					<div class="drama-progress">
+						<p class="drama-progress__label" data-pair-label aria-live="polite">Recuerdo 1 de 5</p>
+						<div class="drama-progress__track" role="progressbar" aria-label="Recorrido de historias" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1">
+							<span data-progress-fill></span>
+						</div>
+					</div>
+
+					<div class="drama-pair" data-drama-pair aria-live="polite"></div>
+
+					<footer class="kdramas__footer">
+						<div class="drama-discoveries">
+							<p class="drama-discoveries__label" data-discovery-count>0 de 10 señales encontradas</p>
+							<ol class="drama-discoveries__letters" data-letter-track aria-label="Señales encontradas"></ol>
+						</div>
+						<button class="kdramas__next" data-next-pair type="button" disabled>
+							<span>Continuar</span>
+							<svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M5 12h13m-5-5 5 5-5 5" /></svg>
+						</button>
+					</footer>
+				</div>
+			</section>
+
+			<section class="garden-puzzle" id="garden-puzzle" aria-labelledby="garden-title" hidden>
+				<div class="garden-scene" data-garden-scene aria-hidden="true">
+					<img class="garden-scene__art" src="./assets/images/puzzle-garden.svg" alt="" />
+					<div class="garden-scene__sky"></div>
+					<div class="garden-scene__dusk"></div>
+					<div class="garden-scene__sunlight"></div>
+					<div class="garden-scene__blooms">
+						<span class="garden-bloom garden-bloom--gerbera"><i></i><b></b></span>
+						<span class="garden-bloom garden-bloom--tulip"><i></i><b></b></span>
+						<span class="garden-bloom garden-bloom--sunflower"><i></i><b></b></span>
+						<span class="garden-bloom garden-bloom--dahlia"><i></i><b></b></span>
+						<span class="garden-bloom garden-bloom--gerbera"><i></i><b></b></span>
+						<span class="garden-bloom garden-bloom--tulip"><i></i><b></b></span>
+						<span class="garden-bloom garden-bloom--sunflower"><i></i><b></b></span>
+						<span class="garden-bloom garden-bloom--dahlia"><i></i><b></b></span>
+						<span class="garden-bloom garden-bloom--gerbera"><i></i><b></b></span>
+						<span class="garden-bloom garden-bloom--tulip"><i></i><b></b></span>
+					</div>
+					<div class="garden-scene__lights" data-garden-lights></div>
+				</div>
+
+				<div class="garden-puzzle__content">
+					<header class="garden-puzzle__intro">
+						<p class="garden-puzzle__eyebrow">El último secreto</p>
+						<h2 id="garden-title" tabindex="-1">Nuestro jardín</h2>
+					</header>
+					<div class="garden-puzzle__board" data-puzzle-board role="group" aria-label="Diez lugares para las piezas del jardín"></div>
+					<div class="garden-puzzle__tray" data-puzzle-tray role="group" aria-label="Piezas disponibles"></div>
+					<p class="garden-puzzle__status" data-puzzle-status role="status" aria-live="polite" tabindex="-1">El jardín espera cada señal.</p>
+				</div>
+			</section>
+
+			<section class="final-surprise" id="final-surprise" aria-labelledby="surprise-title" hidden>
+				<div class="final-surprise__layout">
+					<div class="final-surprise__scene">
+						<img src="./assets/images/final-celebration.svg" alt="Snoopy vestido de odontólogo junto a un pastel de cumpleaños con 18 velas." />
+						<span class="final-surprise__sparkle final-surprise__sparkle--one" aria-hidden="true"></span>
+						<span class="final-surprise__sparkle final-surprise__sparkle--two" aria-hidden="true"></span>
+						<span class="final-surprise__sparkle final-surprise__sparkle--three" aria-hidden="true"></span>
+						<span class="final-surprise__sparkle final-surprise__sparkle--four" aria-hidden="true"></span>
+						<span class="final-surprise__sparkle final-surprise__sparkle--five" aria-hidden="true"></span>
+					</div>
+
+					<div class="final-surprise__content">
+						<p class="final-surprise__eyebrow">La sorpresa final</p>
+						<h2 id="surprise-title" tabindex="-1">Para Betsabé</h2>
+						<div class="final-surprise__letter-block">
+							<p class="final-surprise__label">Carta personal</p>
+							<div class="final-surprise__letter" data-personal-letter>
+								<p data-letter-line>Aquí irá mi carta para Betsabé.</p>
+							</div>
+						</div>
+						<div class="final-surprise__phrase-block">
+							<p class="final-surprise__label">Frase final</p>
+							<p class="final-surprise__phrase" data-final-phrase>Tu frase final irá aquí.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<audio data-soundtrack loop preload="none"></audio>
+			<audio data-kdrama-audio preload="none"></audio>
 		</main>
 	</body>
 </html>
