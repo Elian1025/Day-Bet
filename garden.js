@@ -15,6 +15,7 @@ function shufflePieces(pieces) {
 
 function initGardenPuzzle(pieces) {
   const garden = document.querySelector(".garden-puzzle");
+  const journey = document.querySelector(".journey");
   const board = document.querySelector("[data-puzzle-board]");
   const tray = document.querySelector("[data-puzzle-tray]");
   const status = document.querySelector("[data-puzzle-status]");
@@ -22,7 +23,7 @@ function initGardenPuzzle(pieces) {
   const dahliaTransition = document.querySelector("[data-dahlia-transition]");
   const finalSurprise = document.querySelector(".final-surprise");
 
-  if (gardenHasStarted || !garden || !board || !tray || !status || !dahliaTransition || !finalSurprise) return;
+  if (gardenHasStarted || !garden || !journey || !board || !tray || !status || !dahliaTransition || !finalSurprise) return;
   if (!Array.isArray(pieces) || pieces.length !== gardenSolution.length) {
     status.textContent = "Aún faltan algunas señales del jardín.";
     return;
@@ -56,16 +57,14 @@ function initGardenPuzzle(pieces) {
 
   function updateScene(nextCount, hasMistake = false) {
     const progress = nextCount / gardenSolution.length;
-    const dimming = Math.max(0, 0.58 - progress * 0.58 + (hasMistake ? 0.08 : 0));
+    const dimming = 0.58 * (1 - progress);
 
     garden.dataset.correct = String(nextCount);
     garden.dataset.feedback = hasMistake ? "incorrect" : "";
     garden.style.setProperty("--garden-life", String(progress));
-    garden.style.setProperty("--garden-dimming", String(dimming));
-    garden.style.setProperty("--garden-brightness", String(0.58 + progress * 0.42));
-    garden.style.setProperty("--garden-saturation", String(0.32 + progress * 0.68));
-    garden.style.setProperty("--garden-sky-light", String(0.08 + progress * 0.74));
-    garden.style.setProperty("--garden-sunlight", String(progress * 0.84));
+    journey.style.setProperty("--garden-dimming", String(dimming));
+    journey.style.setProperty("--garden-sky-light", String(0.16 + progress * 0.62));
+    journey.style.setProperty("--garden-sunlight", String(progress * 0.84));
 
     blooms.forEach((bloom, index) => {
       const lean = index % 2 === 0 ? -13 : 11;

@@ -171,7 +171,7 @@ function initKdramas() {
     return button;
   }
 
-  function makeDramaCard(drama, index) {
+  function makeDramaCard(drama) {
     const card = document.createElement("article");
     card.className = "drama-card";
     card.dataset.dramaId = drama.id;
@@ -181,7 +181,8 @@ function initKdramas() {
 
     const number = document.createElement("p");
     number.className = "drama-card__number";
-    number.textContent = `RECUERDO 0${index + 1}`;
+    const dramaNumber = dramas.findIndex((item) => item.id === drama.id) + 1;
+    number.textContent = `RECUERDO ${String(dramaNumber).padStart(2, "0")}`;
 
     const title = document.createElement("h3");
     title.className = "drama-card__title";
@@ -270,7 +271,7 @@ function initKdramas() {
   function renderPair() {
     const start = currentPair * pairSize;
     const shownDramas = dramas.slice(start, start + pairSize);
-    pair.replaceChildren(...shownDramas.map((drama, index) => makeDramaCard(drama, start + index + 1)));
+    pair.replaceChildren(...shownDramas.map((drama) => makeDramaCard(drama)));
     pairLabel.textContent = `Recuerdo ${currentPair + 1} de ${pairCount}`;
     progressTrack.setAttribute("aria-valuenow", String(currentPair + 1));
     progressFill.style.width = `${((currentPair + 1) / pairCount) * 100}%`;

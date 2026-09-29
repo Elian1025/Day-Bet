@@ -12,17 +12,18 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet" />
-		<link rel="stylesheet" href="./styles.css" />
-		<script src="./surprise.js" defer></script>
+		<link rel="stylesheet" href="./styles.css?v=final-letter-mobile-529" />
+		<script src="./surprise.js?v=letter-overlay-2" defer></script>
+		<script src="./photo-settings.js" defer></script>
 		<script src="./garden.js" defer></script>
-		<script src="./kdramas.js" defer></script>
+		<script src="./kdramas.js?v=recuerdo-01-10" defer></script>
 		<script src="./main.js" defer></script>
 	</head>
 	<body>
 		<main class="journey" data-state="welcome">
 			<section class="welcome" aria-labelledby="welcome-title">
 				<div class="welcome__landscape" aria-hidden="true">
-					<img class="welcome__art" src="./assets/images/betsabe-meadow.svg" alt="" fetchpriority="high" />
+					<img class="welcome__art" data-scene-image="welcome" src="./assets/images/inicio.jpeg" alt="" fetchpriority="high" />
 					<span class="welcome__sparkle welcome__sparkle--one"></span>
 					<span class="welcome__sparkle welcome__sparkle--two"></span>
 					<span class="welcome__sparkle welcome__sparkle--three"></span>
@@ -41,6 +42,14 @@
 							<path d="M5 12h13m-5-5 5 5-5 5" />
 						</svg>
 					</a>
+				</div>
+				<div class="photo-control">
+					<input data-photo-input="welcome" type="file" accept="image/jpeg,image/png,image/webp,image/avif" hidden />
+					<button class="photo-control__button" data-photo-trigger="welcome" type="button" aria-label="Elegir foto para la pantalla de inicio">
+						<svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M4 7.5h3l1.5-2h7l1.5 2h3A1.5 1.5 0 0 1 21.5 9v9a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 18V9A1.5 1.5 0 0 1 4 7.5Z"/><circle cx="12" cy="13" r="3.5"/></svg>
+						<span>Cambiar foto</span>
+					</button>
+					<span class="photo-control__status" data-photo-status="welcome" role="status" aria-live="polite"></span>
 				</div>
 
 			</section>
@@ -81,7 +90,7 @@
 
 			<section class="garden-puzzle" id="garden-puzzle" aria-labelledby="garden-title" hidden>
 				<div class="garden-scene" data-garden-scene aria-hidden="true">
-					<img class="garden-scene__art" src="./assets/images/puzzle-garden.svg" alt="" />
+					<img class="garden-scene__art" data-scene-image="garden" src="./assets/images/fondo.jpeg" alt="" />
 					<div class="garden-scene__sky"></div>
 					<div class="garden-scene__dusk"></div>
 					<div class="garden-scene__sunlight"></div>
@@ -109,34 +118,31 @@
 					<div class="garden-puzzle__tray" data-puzzle-tray role="group" aria-label="Piezas disponibles"></div>
 					<p class="garden-puzzle__status" data-puzzle-status role="status" aria-live="polite" tabindex="-1">El jardín espera cada señal.</p>
 				</div>
+				<div class="photo-control">
+					<input data-photo-input="garden" type="file" accept="image/jpeg,image/png,image/webp,image/avif" hidden />
+					<button class="photo-control__button" data-photo-trigger="garden" type="button" aria-label="Elegir foto para el atardecer y el puzzle">
+						<svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M4 7.5h3l1.5-2h7l1.5 2h3A1.5 1.5 0 0 1 21.5 9v9a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 18V9A1.5 1.5 0 0 1 4 7.5Z"/><circle cx="12" cy="13" r="3.5"/></svg>
+						<span>Cambiar foto</span>
+					</button>
+					<span class="photo-control__status" data-photo-status="garden" role="status" aria-live="polite"></span>
+				</div>
 			</section>
 
 			<section class="final-surprise" id="final-surprise" aria-labelledby="surprise-title" hidden>
-				<div class="final-surprise__layout">
-					<div class="final-surprise__scene">
-						<img src="./assets/images/final-celebration.svg" alt="Snoopy vestido de odontólogo junto a un pastel de cumpleaños con 18 velas." />
-						<span class="final-surprise__sparkle final-surprise__sparkle--one" aria-hidden="true"></span>
-						<span class="final-surprise__sparkle final-surprise__sparkle--two" aria-hidden="true"></span>
-						<span class="final-surprise__sparkle final-surprise__sparkle--three" aria-hidden="true"></span>
-						<span class="final-surprise__sparkle final-surprise__sparkle--four" aria-hidden="true"></span>
-						<span class="final-surprise__sparkle final-surprise__sparkle--five" aria-hidden="true"></span>
-					</div>
-
-					<div class="final-surprise__content">
-						<p class="final-surprise__eyebrow">La sorpresa final</p>
-						<h2 id="surprise-title" tabindex="-1">Para Betsabé</h2>
-						<div class="final-surprise__letter-block">
-							<p class="final-surprise__label">Carta personal</p>
-							<div class="final-surprise__letter" data-personal-letter>
-								<p data-letter-line>Aquí irá mi carta para Betsabé.</p>
-							</div>
+				<h2 class="final-surprise__title" id="surprise-title" tabindex="-1">La sorpresa final para Betsabé</h2>
+				<div class="final-surprise__artboard">
+					<img class="final-surprise__image" src="./assets/images/final.jpeg" alt="Ilustración de la sorpresa final" />
+					<div class="final-surprise__letter-patch">
+						<div class="final-surprise__letter-scroll" id="letter-reading" data-letter-scroll tabindex="0" role="region" aria-label="Carta para Betsabé">
+							<p data-personal-letter></p>
 						</div>
-						<div class="final-surprise__phrase-block">
-							<p class="final-surprise__label">Frase final</p>
-							<p class="final-surprise__phrase" data-final-phrase>Tu frase final irá aquí.</p>
-						</div>
+						<p class="final-surprise__letter-signoff" data-letter-signoff></p>
 					</div>
 				</div>
+				<button class="final-surprise__letter-toggle" data-letter-toggle type="button" aria-controls="letter-reading" aria-pressed="false" aria-label="Pausar desplazamiento de la carta" title="Pausar desplazamiento de la carta" hidden>
+					<svg class="final-surprise__pause-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M8 5v14M16 5v14" /></svg>
+					<svg class="final-surprise__play-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="m8 5 11 7-11 7V5Z" /></svg>
+				</button>
 			</section>
 
 			<audio data-soundtrack loop preload="none"></audio>
